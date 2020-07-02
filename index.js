@@ -167,3 +167,49 @@ for (prop in jeopardyWinnings) {
   console.log(prop);
   console.log(jeopardyWinnings[prop]);
 }
+
+// functions
+function grumpus() {
+  console.log("ugh you again!");
+  console.log("For the last time!");
+  console.log("LEAVE ME ALONE!");
+}
+// grumpus();
+for (let i = 0; i < 5; i++) {
+  grumpus();
+}
+
+function rollDie() {
+  let roll = Math.floor(Math.random() * 6) + 1;
+  console.log(`${roll} was rolled!`);
+}
+rollDie();
+
+function throwDice(numOfRolls) {
+  for (let i = 0; i < numOfRolls; i++) rollDie();
+}
+throwDice(3);
+
+function greet(nickname) {
+  console.log(`Hello ${nickname}`);
+}
+greet("Nick");
+
+function isValid(password, username) {
+  if (
+    password.length < 8 ||
+    password.indexOf(" ") ||
+    password.indexOf(username)
+  ) {
+    return false;
+  }
+  return true;
+}
+function isPanagram(sentence) {
+  let lowerCased = sentence.toLowerCase();
+  for (let char of "abcdefghijlmnopqrstuvwxyz")
+    if (!lowerCased.includes(char)) {
+      return false;
+    }
+  return true;
+}
