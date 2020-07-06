@@ -213,3 +213,71 @@ function isPanagram(sentence) {
     }
   return true;
 }
+//  lexical Scope
+// learning how to access in nested functions
+function outer() {
+  let movie = "amadeus";
+  function inner() {
+    console.log(movie.toUpperCase());
+  }
+  inner();
+}
+outer();
+
+// function expressions
+const sum = function (x, y) {
+  return x + y;
+};
+// higher order functions
+// functions that operate on/with other functions
+function add(x, y) {
+  return x + y;
+}
+const subtract = function (x, y) {
+  return x - y;
+};
+function product(x, y) {
+  return x * y;
+}
+const divide = function (x, y) {
+  return x / y;
+};
+const operation = [add, subtract, product, divide];
+
+operation[1](100, 4);
+for (let func of operation) {
+  let result = func(30, 5);
+  console.log(result);
+}
+
+function callThreeTimes(f) {
+  f();
+  f();
+  f();
+}
+function cry() {
+  console.log("BooHoo I am so sad");
+}
+callThreeTimes(cry);
+
+function rage() {
+  console.log("I Hate Everything");
+}
+
+function repeatNTimes(action, num) {
+  for (let i = 0; i < num; i++) {
+    action();
+  }
+}
+repeatNTimes(rage, 5);
+
+// callback function
+
+setTimeout(function () {
+  alert("Welcome!");
+}, 3000);
+
+const btn = document.querySelector("button");
+btn.addEventListener("click", function () {
+  alert("WHY DID YOU CLICK ME!");
+});
