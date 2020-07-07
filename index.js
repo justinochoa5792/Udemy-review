@@ -331,3 +331,30 @@ const oddss = numberss.filter((n) => n % 2 === 1);
 const evens = numberss.filter((n) => n % 2 == 0);
 console.log(oddss);
 console.log(evens);
+
+// every
+// needs every element to be true to return true
+const wordz = ["dog", "dig", "log", "bag"];
+const all3Let = wordz.every((word) => word.length === 3);
+console.log(all3Let);
+
+// Some
+// needs only one element to be true to return true
+const someStartWD = wordz.some((word) => word[0] === "d");
+
+// sort
+// mutates original array
+// .slice if you want to create a new array instead of chaning original array
+const prices = [400.5, 3000, 99.99, 35.99, 12.0, 9500];
+
+const acsSort = prices.sort((a, b) => a - b);
+const desSort = prices.sort((a, b) => b - a);
+console.log(acsSort);
+console.log(desSort);
+
+// reduce
+const num1 = [3, 4, 5, 6, 7];
+const product1 = num1.reduce((total, currentVal) => {
+  return total * currentVal;
+});
+console.log(product1);
