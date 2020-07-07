@@ -281,3 +281,53 @@ const btn = document.querySelector("button");
 btn.addEventListener("click", function () {
   alert("WHY DID YOU CLICK ME!");
 });
+
+// for each
+const number = [21, 22, 23, 24, 25, 26, 27];
+number.forEach(function (num) {
+  console.log(num * 2);
+});
+
+function printTriple(n) {
+  console.log(n * 3);
+}
+number.forEach(printTriple);
+
+// Map
+const numb = [21, 22, 23, 24, 25, 26, 27];
+const doubles = numb.map(function (num) {
+  return num * 2;
+});
+console.log(doubles);
+
+const words = ["asap", "byob", "rvsp", "diy"];
+const abbrevs = words.map(function (word) {
+  return word.toUpperCase().split("").join(".");
+});
+console.log(abbrevs);
+
+// arrow function
+const isEven = (num) => {
+  return num % 2 === 0;
+};
+console.log(isEven(23));
+
+// Array.find
+let moviess = [
+  "The Fantastic Mr. Fox",
+  "Mr. and Mrs. Smith",
+  "Mrs. Doubtfire",
+  "Mr. Deeds",
+];
+const moviee = moviess.find((moviee) => {
+  return moviee.includes("Mrs");
+});
+console.log(moviee);
+
+// Array.filter
+const numberss = [34, 35, 67, 54, 109, 102, 32, 9];
+
+const oddss = numberss.filter((n) => n % 2 === 1);
+const evens = numberss.filter((n) => n % 2 == 0);
+console.log(oddss);
+console.log(evens);
