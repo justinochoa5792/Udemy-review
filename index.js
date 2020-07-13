@@ -358,3 +358,114 @@ const product1 = num1.reduce((total, currentVal) => {
   return total * currentVal;
 });
 console.log(product1);
+
+// default parameters
+
+function multi(x, y) {
+  if (typeof y === "undefined") {
+    y = 1;
+  }
+  return x * y;
+}
+console.log(multi(4));
+
+// or
+
+function multi2(x, y = 1) {
+  return x * y;
+}
+console.log(multi2(5));
+
+// spread for functions
+const num2 = [45, 23, 34, 7, 5];
+Math.max(num2);
+// get NaN
+console.log(Math.max(...num2));
+//  spread makes each array seperate numbers which allows you to get the max of an array
+
+// Array literals
+const cephalopods = [
+  "dumbo octopus",
+  "humboldt squid",
+  "flamboyant cuttlefish",
+];
+const gastropods = ["gian african snail", "banana slug", "variable neon slug"];
+const cnidaria = ["fire coral", "moon jelly"];
+
+const mollusca = [...cephalopods, ...gastropods];
+console.log(mollusca);
+
+// Object literal
+
+const feline = {
+  legs: 4,
+  family: "Felidae",
+};
+const canine = {
+  family: "Caninae",
+  furry: true,
+};
+const dog = {
+  ...canine,
+  isPet: true,
+  legs: 4,
+};
+console.log(dog);
+
+// rest
+// uses ... like spread but instead collects things into a single arry
+// review before rest
+function sum2() {
+  const argsArr = [...arguments];
+  return argsArr.reduce((total, currVal) => {
+    return total + currVal;
+  });
+}
+console.log(sum2(1, 2, 3, 4, 5));
+
+function sum3(...nums) {
+  return nums.reduce((total, currVals) => {
+    return total + currVals;
+  });
+}
+console.log(sum3(4, 5, 6, 7));
+
+function fullName(first, last, ...title) {
+  console.log("first:", first);
+  console.log("last:", last);
+  console.log("title:", title);
+}
+console.log(fullName("indiana", "jones", "III", "order of the pheonix"));
+
+// destructuring Array
+const raceResults = [
+  "Eliud Kipchoge",
+  "Feyisa Lelisa",
+  "Galen Rupp",
+  "Ghirmay Ghebreslassie",
+  "Alphonce Simbu",
+  "Jared Ward",
+];
+const [gold, silver, bronze] = raceResults;
+console.log(gold);
+const [first, , , fourth] = raceResults;
+console.log(fourth);
+const [winner, ...others] = raceResults;
+console.log(others);
+
+// destructuring Object
+const runner = {
+  first2: "Eluid",
+  last2: "Kipchoge",
+  country2: "Kenya",
+  title2: "Elder of the order of the golder heart of kenya",
+};
+const { first2, last2, ...other } = runner;
+console.log(first2);
+console.log(other);
+
+const response = ["HTTP/1.1", "200 OK", "application/json"];
+function parseResponse([protocol, statusCode, contentType]) {
+  console.log(`Status: ${statusCode}`);
+}
+parseResponse(response);
